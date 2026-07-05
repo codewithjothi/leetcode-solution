@@ -1,0 +1,46 @@
+/**
+ * LeetCode 13. Roman to Integer
+ *
+ * Problem: Roman numerals are represented by 7 different symbols: I, V, X, L, C, D and M.
+ * Given a roman numeral, convert it to an integer.
+ *
+ * Key Logic: Traverse from right to left.
+ * If current value < previous value -> subtract
+ * Else -> add
+ *
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
+ *
+ * Runtime: 3ms | Beats 78.1%
+ * Memory: 45.6MB | Beats 99.8%
+ *
+ * Date: 04-04-2026
+ * Author: Mah
+ */
+
+class Solution {
+    public int romanToInt(String s) {
+        int[] values = new int[128];
+        values['I'] = 1;
+        values['V'] = 5;
+        values['X'] = 10;
+        values['L'] = 50;
+        values['C'] = 100;
+        values['D'] = 500;
+        values['M'] = 1000;
+
+        int total = 0;
+        int prev = 0;
+
+        for(int i = s.length() - 1; i >= 0; i--) {
+            int curr = values[s.charAt(i)];
+            if(curr < prev) {
+                total -= curr;
+            } else {
+                total += curr;
+            }
+            prev = curr;
+        }
+        return total;
+    }
+}
