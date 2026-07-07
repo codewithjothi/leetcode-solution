@@ -10,8 +10,8 @@
  * Time Complexity: O(S) where S = sum of all characters in all strings
  * Space Complexity: O(1)
  *
- * Runtime: 1ms | Beats 95.2%
- * Memory: 42.1MB | Beats 97.6%
+ * Runtime: 0ms | Beats 100.0%
+* Memory: 43.4MB | Beats 17.3%
  *
  * Date: 04-04-2026
  * Author: Mah
