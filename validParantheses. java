@@ -1,0 +1,39 @@
+/**
+ * LeetCode 20. Valid Parentheses
+ *
+ * Problem: Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
+ * determine if the input string is valid.
+ *
+ * Key Logic: Optimized Stack approach.
+ * Push the expected closing bracket. If mismatch or empty stack, return false.
+ *
+ * Time Complexity: O(n)
+ * Space Complexity: O(n)
+ *
+ * Runtime: 3ms | Beats 87.2%
+ * Memory: 43.1MB | Beats 73.1%
+ *
+ * Date: 05-04-2026
+ * Author: Mah
+ */
+
+import java.util.Stack;
+
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        
+        for(char c : s.toCharArray()) {
+           
+            if(c == '(') stack.push(')');
+            else if(c == '{') stack.push('}');
+            else if(c == '[') stack.push(']');
+    
+            else if(stack.isEmpty() || stack.pop()!= c) {
+                return false;
+            }
+        }
+  
+        return stack.isEmpty();
+    }
+}
